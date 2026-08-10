@@ -58,13 +58,33 @@ a {
 .hero-photo {
   position: absolute;
   inset: 0;
-  background:
+  overflow: hidden;
+  background: #070707;
+}
+
+.hero-photo::before {
+  content: "";
+  position: absolute;
+  inset: -5%;
+  background: url("https://foyner.no/images/rust-ladder-water.jpg") center 58% / cover no-repeat;
+  filter: grayscale(1) blur(24px) brightness(0.5);
+  transform: scale(1.08);
+}
+
+.hero-photo::after {
+  content: "";
+  position: absolute;
+  z-index: 1;
+  inset: 0;
+  background-image:
     linear-gradient(90deg, rgba(5, 5, 5, 0.96) 0%, rgba(5, 5, 5, 0.72) 43%, rgba(5, 5, 5, 0.36) 74%, rgba(5, 5, 5, 0.7) 100%),
     linear-gradient(0deg, rgba(5, 5, 5, 0.7), transparent 45%),
-    url("https://foyner.no/images/rust-ladder-water.jpg") center 58% / cover no-repeat;
+    url("https://foyner.no/images/rust-ladder-water.jpg");
+  background-position: center, center, center 58%;
+  background-size: 100% 100%, 100% 100%, contain;
+  background-repeat: no-repeat;
   filter: grayscale(1) contrast(1.05);
-  transform: scale(1);
-  animation: hero-drift 18s ease-in-out infinite alternate;
+  pointer-events: none;
 }
 
 .hero::after {
@@ -1261,12 +1281,6 @@ a:focus-visible {
     url("https://foyner.no/images/rust-ladder-water.jpg") center 55% / cover no-repeat;
 }
 
-@keyframes hero-drift {
-  to {
-    transform: scale(1.035) translate3d(-0.6%, -0.4%, 0);
-  }
-}
-
 @keyframes reveal {
   to {
     opacity: 1;
@@ -1502,8 +1516,13 @@ a:focus-visible {
     margin: 0;
   }
 
-  .hero-photo {
+  .hero-photo::before {
     background-position: 58% center;
+  }
+
+  .hero-photo::after {
+    background-position: center, center, 58% center;
+    background-size: 100% 100%, 100% 100%, cover;
   }
 
   .editorial-heading h2,
