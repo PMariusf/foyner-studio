@@ -59,13 +59,13 @@ a {
 
 .hero-photo {
   position: absolute;
-  inset: -3%;
+  inset: 0;
   background:
     linear-gradient(90deg, rgba(5, 5, 5, 0.96) 0%, rgba(5, 5, 5, 0.72) 43%, rgba(5, 5, 5, 0.36) 74%, rgba(5, 5, 5, 0.7) 100%),
     linear-gradient(0deg, rgba(5, 5, 5, 0.7), transparent 45%),
     url("https://foyner.no/images/rust-ladder-water.jpg") center 58% / cover no-repeat;
   filter: grayscale(1) contrast(1.05);
-  transform: scale(1.04);
+  transform: scale(1);
   animation: hero-drift 18s ease-in-out infinite alternate;
 }
 
@@ -1265,7 +1265,7 @@ a:focus-visible {
 
 @keyframes hero-drift {
   to {
-    transform: scale(1.09) translate3d(-1.2%, -0.8%, 0);
+    transform: scale(1.035) translate3d(-0.6%, -0.4%, 0);
   }
 }
 
