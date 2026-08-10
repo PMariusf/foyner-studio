@@ -1,5 +1,3 @@
-import { image } from "framer-motion/client";
-
 const projects = [
   {
     number: "01",
@@ -16,7 +14,7 @@ const projects = [
     title: "PM’s Music",
     text: "Original songs, cover art and the feeling behind every release.",
     className: "project-music",
-    image: "https://foyner.no/images/web/PM.png",
+    image: "/images/music/pm-music-cover.webp",
     href: "#music",
   },
   {
@@ -272,19 +270,45 @@ export default function Home() {
             </a>
           </div>
 
-          <div className="sound-art" aria-label="PM’s Music artwork">
-            <div className="record-orbit orbit-one" />
-            <div className="record-orbit orbit-two" />
-            <div className="record-label">
-              <span>PM’s</span>
-              <small>Music</small>
-            </div>
-            <div className="wave" aria-hidden="true">
-              {[30, 54, 76, 42, 90, 62, 34, 70, 48, 84, 58, 28].map(
-                (height, index) => (
-                  <i key={index} style={{ height: `${height}%` }} />
-                ),
-              )}
+          <div className="sound-media">
+            <figure className="sound-video-card">
+              <video
+                autoPlay
+                muted
+                loop
+                playsInline
+                preload="metadata"
+                poster="/images/music/rock-singer.webp"
+                aria-label="Rock singer performing on stage"
+              >
+                <source src="/images/music/rock-singer.mp4" type="video/mp4" />
+              </video>
+              <figcaption>
+                <span>In motion</span>
+                <strong>Energy becomes sound</strong>
+              </figcaption>
+            </figure>
+
+            <div className="sound-stills">
+              <figure className="sound-cover-card">
+                <img
+                  src="/images/music/pm-music-cover.webp"
+                  alt="PM’s Music artwork with the words Feel it. Live it. Be it."
+                  loading="lazy"
+                  decoding="async"
+                />
+                <figcaption>PM’s Music</figcaption>
+              </figure>
+
+              <figure className="sound-portrait-card">
+                <img
+                  src="/images/music/rock-singer.webp"
+                  alt="Rock singer recording beside a studio microphone"
+                  loading="lazy"
+                  decoding="async"
+                />
+                <figcaption>Studio atmosphere</figcaption>
+              </figure>
             </div>
           </div>
         </div>
