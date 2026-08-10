@@ -1,3 +1,5 @@
+import { image } from "framer-motion/client";
+
 const projects = [
   {
     number: "01",
@@ -14,6 +16,7 @@ const projects = [
     title: "PM’s Music",
     text: "Original songs, cover art and the feeling behind every release.",
     className: "project-music",
+    image: "https://foyner.no/images/web/PM.png",
     href: "#music",
   },
   {
