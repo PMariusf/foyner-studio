@@ -456,23 +456,9 @@ a {
   background: radial-gradient(circle at 50% 48%, #b17637 0, #382416 20%, #100c09 52%, #070707 100%);
 }
 
-.project-music::before {
-  width: 60%;
-  aspect-ratio: 1;
-  left: 20%;
-  top: 20%;
-  border: 1px solid rgba(242, 203, 150, 0.45);
-  border-radius: 50%;
-  box-shadow: 0 0 0 22px rgba(216, 151, 76, 0.08), 0 0 0 65px rgba(216, 151, 76, 0.05);
-}
-
+.project-music::before,
 .project-music::after {
-  width: 3px;
-  height: 75%;
-  left: 50%;
-  top: 12%;
-  background: linear-gradient(transparent, #e8c89c, transparent);
-  box-shadow: -28px 0 0 rgba(232, 200, 156, 0.2), 36px 0 0 rgba(232, 200, 156, 0.16);
+  display: none;
 }
 
 .project-art {
@@ -592,11 +578,11 @@ a {
 }
 
 .sound-layout {
-  min-height: 900px;
+  min-height: 940px;
   display: grid;
-  grid-template-columns: 1fr 1.15fr;
+  grid-template-columns: minmax(340px, 0.76fr) minmax(0, 1.24fr);
   align-items: center;
-  gap: 100px;
+  gap: clamp(60px, 7vw, 110px);
   padding-block: 120px;
 }
 
@@ -642,78 +628,130 @@ a {
   transform: translate(3px, -3px);
 }
 
-.sound-art {
-  position: relative;
-  aspect-ratio: 1;
+.sound-media {
   display: grid;
-  place-items: center;
-  border-radius: 50%;
-  background: radial-gradient(circle, #27221d 0 19%, #b77738 19.5% 21%, #191919 21.5% 50%, #080808 50.5% 100%);
-  box-shadow: 30px 45px 80px rgba(20, 13, 7, 0.35), inset 0 0 100px rgba(255, 255, 255, 0.08);
-  animation: float 7s ease-in-out infinite;
+  grid-template-columns: minmax(0, 1.08fr) minmax(190px, 0.72fr);
+  gap: clamp(14px, 1.7vw, 24px);
+  min-width: 0;
 }
 
-.record-orbit {
-  position: absolute;
-  border: 1px solid rgba(255, 255, 255, 0.16);
-  border-radius: 50%;
+.sound-media figure {
+  margin: 0;
 }
 
-.orbit-one {
-  inset: 10%;
-}
-
-.orbit-two {
-  inset: 31%;
-}
-
-.record-label {
+.sound-video-card,
+.sound-cover-card,
+.sound-portrait-card {
   position: relative;
+  overflow: hidden;
+  background: #100d0b;
+  box-shadow: 0 24px 60px rgba(35, 22, 12, 0.2);
+}
+
+.sound-video-card {
+  min-height: 690px;
+}
+
+.sound-video-card video,
+.sound-stills img {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+}
+
+.sound-video-card video {
+  position: absolute;
+  inset: 0;
+  object-position: center 26%;
+  filter: saturate(0.84) contrast(1.04) brightness(0.9);
+}
+
+.sound-video-card::after,
+.sound-stills figure::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+.sound-video-card::after {
+  background: linear-gradient(180deg, transparent 48%, rgba(9, 6, 4, 0.84));
+}
+
+.sound-stills {
+  display: grid;
+  grid-template-rows: 1fr 1fr;
+  gap: clamp(14px, 1.7vw, 24px);
+}
+
+.sound-stills figure {
+  min-height: 0;
+}
+
+.sound-stills img {
+  position: absolute;
+  inset: 0;
+  transition: transform 750ms cubic-bezier(0.2, 0.7, 0.2, 1), filter 500ms ease;
+}
+
+.sound-cover-card img {
+  object-position: center;
+}
+
+.sound-portrait-card img {
+  object-position: center 38%;
+}
+
+.sound-cover-card::after {
+  background: linear-gradient(180deg, transparent 58%, rgba(8, 5, 3, 0.7));
+}
+
+.sound-portrait-card::after {
+  background: linear-gradient(180deg, transparent 48%, rgba(8, 5, 3, 0.82));
+}
+
+.sound-stills figure:hover img {
+  transform: scale(1.035);
+  filter: saturate(1.05);
+}
+
+.sound-video-card figcaption,
+.sound-stills figcaption {
+  position: absolute;
   z-index: 2;
+  left: clamp(18px, 2vw, 30px);
+  right: clamp(18px, 2vw, 30px);
+  bottom: clamp(18px, 2vw, 28px);
+  color: #f1e9df;
+}
+
+.sound-video-card figcaption {
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  color: #e7d9c8;
-  font-family: Georgia, serif;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 22px;
 }
 
-.record-label span {
-  font-size: clamp(2.2rem, 4vw, 4.5rem);
-  font-style: italic;
-}
-
-.record-label small {
-  margin-top: 6px;
-  color: #d9a36c;
+.sound-video-card figcaption span,
+.sound-stills figcaption {
   font-family: var(--font-geist-mono), monospace;
   font-size: 0.58rem;
-  letter-spacing: 0.38em;
+  letter-spacing: 0.14em;
   text-transform: uppercase;
 }
 
-.wave {
-  position: absolute;
-  inset: auto 8% 15%;
-  height: 13%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 8px;
+.sound-video-card figcaption span {
+  color: #e4a965;
 }
 
-.wave i {
-  width: 2px;
-  display: block;
-  background: linear-gradient(#e2ad74, rgba(226, 173, 116, 0));
-  animation: pulse 1.8s ease-in-out infinite alternate;
-}
-
-.wave i:nth-child(2n) {
-  animation-delay: -600ms;
-}
-
-.wave i:nth-child(3n) {
-  animation-delay: -1100ms;
+.sound-video-card figcaption strong {
+  max-width: 230px;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(1.35rem, 2.1vw, 2.25rem);
+  font-weight: 400;
+  line-height: 1.04;
+  text-align: right;
 }
 
 .about {
@@ -1295,19 +1333,6 @@ a:focus-visible {
   }
 }
 
-@keyframes float {
-  50% {
-    transform: translateY(-16px) rotate(1.5deg);
-  }
-}
-
-@keyframes pulse {
-  to {
-    transform: scaleY(0.45);
-    opacity: 0.4;
-  }
-}
-
 @media (max-width: 900px) {
   .shell {
     width: min(100% - 36px, 1440px);
@@ -1363,9 +1388,13 @@ a:focus-visible {
     gap: 100px;
   }
 
-  .sound-art {
-    width: min(100%, 630px);
+  .sound-media {
+    width: min(100%, 800px);
     justify-self: center;
+  }
+
+  .sound-video-card {
+    min-height: min(88vw, 740px);
   }
 
   .about {
@@ -1473,6 +1502,34 @@ a:focus-visible {
 
   .sound-layout {
     padding-block: 100px;
+  }
+
+  .sound-media {
+    grid-template-columns: 1fr;
+  }
+
+  .sound-video-card {
+    min-height: 0;
+    aspect-ratio: 4 / 5;
+  }
+
+  .sound-stills {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-template-rows: none;
+  }
+
+  .sound-stills figure {
+    aspect-ratio: 1;
+  }
+
+  .sound-video-card figcaption {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .sound-video-card figcaption strong {
+    text-align: left;
   }
 
   .portrait-block {
@@ -1613,5 +1670,13 @@ a:focus-visible {
   *::after {
     animation-duration: 0.01ms !important;
     animation-iteration-count: 1 !important;
+  }
+
+  .sound-video-card {
+    background: url("/images/music/rock-singer.webp") center 28% / cover no-repeat;
+  }
+
+  .sound-video-card video {
+    display: none;
   }
 }
