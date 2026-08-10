@@ -5,6 +5,8 @@ const projects = [
     title: "North in focus",
     text: "Quiet landscapes, city light and the moments between.",
     className: "project-bergen",
+    image: "https://foyner.no/images/water.jpeg",
+    href: "#photography",
   },
   {
     number: "02",
@@ -12,6 +14,7 @@ const projects = [
     title: "PM’s Music",
     text: "Original songs, cover art and the feeling behind every release.",
     className: "project-music",
+    href: "#music",
   },
   {
     number: "03",
@@ -19,6 +22,8 @@ const projects = [
     title: "Other worlds",
     text: "Portraits and visual experiments shaped by imagination.",
     className: "project-art",
+    image: "/images/art/aniz.webp",
+    href: "#art",
   },
   {
     number: "04",
@@ -26,7 +31,91 @@ const projects = [
     title: "Ideas in motion",
     text: "Selected digital experiences made to feel alive.",
     className: "project-web",
+    image: "/images/web/solsystem.webp",
+    href: "#web",
   },
+];
+
+const photographs = [
+  {
+    src: "https://foyner.no/images/water.jpeg",
+    alt: "Soft reflections of posts stretching across still water",
+    title: "Reflection",
+    note: "Waterscape",
+    className: "photo-tall",
+  },
+  {
+    src: "https://foyner.no/images/Airport.jpeg",
+    alt: "Travellers silhouetted by warm light inside an airport",
+    title: "Departure",
+    note: "Travel",
+    className: "photo-wide",
+  },
+  {
+    src: "https://foyner.no/images/foggy-farm.jpeg",
+    alt: "A quiet farm resting in mist beneath forested hills",
+    title: "Morning veil",
+    note: "Landscape",
+    className: "photo-wide",
+  },
+  {
+    src: "https://foyner.no/images/IMG_5928.jpeg",
+    alt: "Golden clouds reflected in calm coastal water",
+    title: "Afterglow",
+    note: "Coast",
+    className: "photo-tall",
+  },
+  {
+    src: "https://foyner.no/images/rain-window.jpg",
+    alt: "City lights glowing through a rain-covered window",
+    title: "After rain",
+    note: "City",
+    className: "photo-tall",
+  },
+  {
+    src: "https://foyner.no/images/laatefoss.jpeg",
+    alt: "Låtefossen cascading beside the historic stone bridge",
+    title: "Låtefossen",
+    note: "Norway",
+    className: "photo-wide",
+  },
+];
+
+const artworks = [
+  { src: "/images/art/aniz.webp", title: "Aniz", note: "Portrait study" },
+  { src: "/images/art/viking.webp", title: "Viking", note: "Character art" },
+  { src: "/images/art/demonhunter.webp", title: "Demon hunter", note: "Dark fantasy" },
+  { src: "/images/art/paladin.webp", title: "Paladin", note: "Light & armour" },
+  { src: "/images/art/crylina.webp", title: "Crylina", note: "Visual story" },
+];
+
+const webProjects = [
+  {
+    src: "/images/web/solsystem.webp",
+    title: "Solar System",
+    note: "Interactive 3D experience",
+  },
+  {
+    src: "/images/web/kampsport.webp",
+    title: "Nordhordaland Kampsport",
+    note: "Club website",
+  },
+  {
+    src: "/images/web/foyner-photo.webp",
+    title: "Foyner Photo",
+    note: "Photography & private archive",
+  },
+  {
+    src: "/images/web/fjellveidager.webp",
+    title: "Fjellveidager",
+    note: "Visual identity & campaign",
+  },
+];
+
+const sketches = [
+  { src: "/images/sketch/elisabeth.webp", title: "Elisabeth" },
+  { src: "/images/sketch/amazon-fighter.webp", title: "Amazon fighter" },
+  { src: "/images/sketch/cyberpunk.webp", title: "Cyberpunk" },
 ];
 
 export default function Home() {
@@ -37,6 +126,7 @@ export default function Home() {
       </a>
 
       <section className="hero" id="top">
+        <div className="hero-photo" aria-hidden="true" />
         <div className="hero-light hero-light-one" aria-hidden="true" />
         <div className="hero-light hero-light-two" aria-hidden="true" />
         <div className="grain" aria-hidden="true" />
@@ -79,7 +169,7 @@ export default function Home() {
         <div className="hero-index" aria-hidden="true">
           <span>F</span>
           <i />
-          <span>25</span>
+          <span>26</span>
         </div>
       </section>
 
@@ -108,12 +198,14 @@ export default function Home() {
         <div className="project-grid shell">
           {projects.map((project) => (
             <article className="project" key={project.number}>
-              <a href="#contact" aria-label={`View ${project.title}`}>
+              <a href={project.href} aria-label={`View ${project.title}`}>
                 <div className={`project-visual ${project.className}`}>
+                  {project.image ? (
+                    <img src={project.image} alt="" loading="lazy" decoding="async" />
+                  ) : null}
                   <span className="project-number">{project.number}</span>
-                  <div className="visual-mark" aria-hidden="true" />
                   <span className="project-arrow" aria-hidden="true">
-                    ↗
+                    ↘
                   </span>
                 </div>
                 <div className="project-copy">
@@ -127,7 +219,37 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="sound-section">
+      <section className="photography-section" id="photography">
+        <div className="shell editorial-heading">
+          <div>
+            <p className="section-label">Photography / 01</p>
+            <h2>Quiet places.<br /><em>Honest light.</em></h2>
+          </div>
+          <p>
+            A selection from Bergen, the Norwegian landscape and the details
+            that are easy to walk past.
+          </p>
+        </div>
+
+        <div className="photo-grid shell">
+          {photographs.map((photo) => (
+            <figure className={photo.className} key={photo.src}>
+              <img src={photo.src} alt={photo.alt} loading="lazy" decoding="async" />
+              <figcaption>
+                <span>{photo.note}</span>
+                <strong>{photo.title}</strong>
+              </figcaption>
+            </figure>
+          ))}
+        </div>
+        <div className="shell collection-link-wrap">
+          <a className="text-link dark-link" href="https://foyner.no" target="_blank" rel="noreferrer">
+            View the photo collection <span>↗</span>
+          </a>
+        </div>
+      </section>
+
+      <section className="sound-section" id="music">
         <div className="shell sound-layout">
           <div className="sound-copy">
             <p className="section-label">Sound / PM’s</p>
@@ -142,12 +264,12 @@ export default function Home() {
               Songs built from emotion, energy and the moments words cannot
               hold on their own.
             </p>
-            <a className="text-link" href="#contact">
+            <a className="text-link" href="https://open.spotify.com/search/PM%E2%80%99s" target="_blank" rel="noreferrer">
               Discover the music <span>↗</span>
             </a>
           </div>
 
-          <div className="sound-art" aria-label="Abstract sound artwork">
+          <div className="sound-art" aria-label="PM’s Music artwork">
             <div className="record-orbit orbit-one" />
             <div className="record-orbit orbit-two" />
             <div className="record-label">
@@ -165,10 +287,85 @@ export default function Home() {
         </div>
       </section>
 
+      <section className="art-section" id="art">
+        <div className="shell editorial-heading art-heading">
+          <div>
+            <p className="section-label">Digital art / 02</p>
+            <h2>Characters from<br /><em>other worlds.</em></h2>
+          </div>
+          <p>
+            Dark portraits, cinematic light and familiar fantasy reshaped into
+            personal visual stories.
+          </p>
+        </div>
+        <div className="art-track">
+          {artworks.map((artwork, index) => (
+            <figure key={artwork.src}>
+              <div className="art-image">
+                <img src={artwork.src} alt={`${artwork.title} digital artwork`} loading="lazy" decoding="async" />
+                <span>0{index + 1}</span>
+              </div>
+              <figcaption>
+                <strong>{artwork.title}</strong>
+                <span>{artwork.note}</span>
+              </figcaption>
+            </figure>
+          ))}
+        </div>
+      </section>
+
+      <section className="web-section shell" id="web">
+        <div className="editorial-heading web-heading">
+          <div>
+            <p className="section-label">Web projects / 03</p>
+            <h2>Built to move.<br /><em>Made to belong.</em></h2>
+          </div>
+          <p>
+            Selected frontend work where design, motion and clear content come
+            together.
+          </p>
+        </div>
+        <div className="web-grid">
+          {webProjects.map((project, index) => (
+            <article key={project.src}>
+              <div className="web-image">
+                <img src={project.src} alt={`${project.title} website preview`} loading="lazy" decoding="async" />
+                <span>0{index + 1}</span>
+              </div>
+              <div>
+                <h3>{project.title}</h3>
+                <p>{project.note}</p>
+              </div>
+            </article>
+          ))}
+        </div>
+      </section>
+
+      <section className="sketch-section">
+        <div className="shell sketch-layout">
+          <div className="sketch-copy">
+            <p className="section-label">From sketch to digital</p>
+            <h2>The hand<br />comes first.</h2>
+            <p>
+              Drawing is where much of the visual work begins: a line, a face,
+              an idea—and then the world around it.
+            </p>
+          </div>
+          <div className="sketch-grid">
+            {sketches.map((sketch) => (
+              <figure key={sketch.src}>
+                <img src={sketch.src} alt={`${sketch.title} hand-drawn artwork`} loading="lazy" decoding="async" />
+                <figcaption>{sketch.title}</figcaption>
+              </figure>
+            ))}
+          </div>
+        </div>
+      </section>
+
       <section className="about shell" id="about">
         <div className="portrait-block" aria-hidden="true">
+          <img src="/images/art/viking.webp" alt="" loading="lazy" decoding="async" />
           <span>FØYNER</span>
-          <div className="portrait-glow" />
           <p>Bergen · Norway</p>
         </div>
         <div className="about-copy">
@@ -200,7 +397,7 @@ export default function Home() {
             A separate, password-protected space for personal photographs and
             family memories.
           </p>
-          <a href="#contact" aria-label="Ask for private gallery access">
+          <a href="https://foyner.no/family" target="_blank" rel="noreferrer" aria-label="Open private family gallery">
             <span>Private access</span>
             <b>→</b>
           </a>
@@ -224,9 +421,9 @@ export default function Home() {
               FØYNER<span>STUDIO</span>
             </a>
             <div>
-              <a href="#work">Instagram</a>
-              <a href="#work">Spotify</a>
-              <a href="#work">GitHub</a>
+              <a href="https://www.instagram.com/p_marius_/" target="_blank" rel="noreferrer">Instagram</a>
+              <a href="https://open.spotify.com/search/PM%E2%80%99s" target="_blank" rel="noreferrer">Spotify</a>
+              <a href="https://github.com/PMariusf" target="_blank" rel="noreferrer">GitHub</a>
             </div>
             <p>© 2026 Føyner Studio</p>
           </footer>

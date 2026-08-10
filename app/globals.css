@@ -1,3 +1,5 @@
+@import "tailwindcss";
+
 :root {
   --ink: #0b0b0b;
   --paper: #e9e5dc;
@@ -52,9 +54,19 @@ a {
   position: relative;
   min-height: 100svh;
   overflow: hidden;
+  background: #070707;
+}
+
+.hero-photo {
+  position: absolute;
+  inset: -3%;
   background:
-    linear-gradient(100deg, rgba(0, 0, 0, 0.98) 5%, rgba(8, 8, 8, 0.7) 50%, rgba(7, 7, 7, 0.92) 100%),
-    radial-gradient(circle at 69% 45%, #59462f 0, #17130e 27%, #070707 60%);
+    linear-gradient(90deg, rgba(5, 5, 5, 0.96) 0%, rgba(5, 5, 5, 0.72) 43%, rgba(5, 5, 5, 0.36) 74%, rgba(5, 5, 5, 0.7) 100%),
+    linear-gradient(0deg, rgba(5, 5, 5, 0.7), transparent 45%),
+    url("https://foyner.no/images/rust-ladder-water.jpg") center 58% / cover no-repeat;
+  filter: grayscale(1) contrast(1.05);
+  transform: scale(1.04);
+  animation: hero-drift 18s ease-in-out infinite alternate;
 }
 
 .hero::after {
@@ -353,6 +365,33 @@ a {
   max-height: 690px;
   overflow: hidden;
   background: #1a1a1a;
+}
+
+.project-visual > img {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+  filter: saturate(0.72) contrast(1.05) brightness(0.78);
+  transition: transform 900ms cubic-bezier(0.2, 0.7, 0.2, 1), filter 600ms ease;
+}
+
+.project-art > img {
+  object-position: center 22%;
+}
+
+.project-web > img {
+  object-position: center;
+}
+
+.project a:hover .project-visual > img {
+  filter: saturate(0.95) contrast(1.03) brightness(0.9);
+  transform: scale(1.045);
+}
+
+.project-visual:not(.project-music)::before,
+.project-visual:not(.project-music)::after {
+  display: none;
 }
 
 .project-visual::before,
@@ -855,6 +894,381 @@ footer > p {
   letter-spacing: 0.08em;
 }
 
+a:focus-visible {
+  outline: 2px solid var(--amber);
+  outline-offset: 5px;
+}
+
+.editorial-heading {
+  display: grid;
+  grid-template-columns: minmax(0, 1.5fr) minmax(260px, 0.65fr);
+  gap: clamp(50px, 9vw, 140px);
+  align-items: end;
+  padding-bottom: clamp(60px, 8vw, 110px);
+}
+
+.editorial-heading h2,
+.sketch-copy h2 {
+  margin: 34px 0 0;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(3.6rem, 7vw, 7.4rem);
+  font-weight: 400;
+  line-height: 0.9;
+  letter-spacing: -0.065em;
+}
+
+.editorial-heading h2 em {
+  color: var(--amber);
+  font-weight: 400;
+}
+
+.editorial-heading > p {
+  max-width: 420px;
+  margin: 0 0 6px;
+  color: #98948c;
+  font-size: 1rem;
+  line-height: 1.75;
+}
+
+.photography-section {
+  padding-block: clamp(120px, 14vw, 210px);
+  background: #101010;
+}
+
+.photo-grid {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap: clamp(14px, 2vw, 28px);
+}
+
+.photo-grid figure {
+  position: relative;
+  height: clamp(430px, 50vw, 720px);
+  margin: 0;
+  overflow: hidden;
+  background: #181818;
+}
+
+.photo-grid .photo-tall {
+  grid-column: span 5;
+}
+
+.photo-grid .photo-wide {
+  grid-column: span 7;
+  height: clamp(390px, 43vw, 620px);
+  align-self: end;
+}
+
+.photo-grid figure:nth-child(3),
+.photo-grid figure:nth-child(4) {
+  margin-top: clamp(24px, 5vw, 80px);
+  align-self: start;
+}
+
+.photo-grid figure:nth-child(5),
+.photo-grid figure:nth-child(6) {
+  margin-top: clamp(24px, 5vw, 80px);
+}
+
+.photo-grid img,
+.art-image img,
+.web-image img,
+.sketch-grid img,
+.portrait-block > img {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+}
+
+.photo-grid img {
+  filter: saturate(0.72) contrast(1.04);
+  transition: filter 650ms ease, transform 900ms cubic-bezier(0.2, 0.7, 0.2, 1);
+}
+
+.photo-grid figure:hover img {
+  filter: saturate(1) contrast(1.02);
+  transform: scale(1.035);
+}
+
+.photo-grid figure::after {
+  content: "";
+  position: absolute;
+  inset: 35% 0 0;
+  background: linear-gradient(transparent, rgba(0, 0, 0, 0.78));
+  pointer-events: none;
+}
+
+.photo-grid figcaption {
+  position: absolute;
+  z-index: 2;
+  left: clamp(22px, 3vw, 42px);
+  right: clamp(22px, 3vw, 42px);
+  bottom: clamp(22px, 3vw, 38px);
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+.photo-grid figcaption span,
+.art-track figcaption span,
+.web-grid p {
+  color: #b4afa6;
+  font-family: var(--font-geist-mono), monospace;
+  font-size: 0.6rem;
+  letter-spacing: 0.13em;
+  text-transform: uppercase;
+}
+
+.photo-grid figcaption strong {
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(1.55rem, 2.4vw, 2.8rem);
+  font-weight: 400;
+}
+
+.collection-link-wrap {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.collection-link-wrap .text-link {
+  margin-top: 64px;
+}
+
+.art-section {
+  padding-block: clamp(120px, 14vw, 210px);
+  overflow: hidden;
+  background: #0a0a0a;
+}
+
+.art-heading {
+  width: min(100% - 64px, 1440px);
+  margin-inline: auto;
+}
+
+.art-track {
+  width: min(1780px, calc(100% - 32px));
+  margin-inline: auto;
+  display: grid;
+  grid-template-columns: repeat(5, minmax(240px, 1fr));
+  gap: clamp(10px, 1.4vw, 24px);
+}
+
+.art-track figure {
+  margin: 0;
+}
+
+.art-track figure:nth-child(even) {
+  margin-top: 80px;
+}
+
+.art-image {
+  position: relative;
+  aspect-ratio: 2 / 3;
+  overflow: hidden;
+  background: #171717;
+}
+
+.art-image::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  box-shadow: inset 0 -90px 80px rgba(0, 0, 0, 0.25);
+  pointer-events: none;
+}
+
+.art-image img {
+  filter: grayscale(0.75) contrast(1.08) brightness(0.8);
+  transition: filter 650ms ease, transform 800ms cubic-bezier(0.2, 0.7, 0.2, 1);
+}
+
+.art-track figure:hover img {
+  filter: grayscale(0.15) contrast(1.04) brightness(0.94);
+  transform: scale(1.035);
+}
+
+.art-image > span {
+  position: absolute;
+  z-index: 2;
+  left: 18px;
+  top: 18px;
+  font-family: var(--font-geist-mono), monospace;
+  font-size: 0.6rem;
+  letter-spacing: 0.12em;
+}
+
+.art-track figcaption {
+  display: flex;
+  justify-content: space-between;
+  gap: 18px;
+  padding-top: 18px;
+}
+
+.art-track figcaption strong {
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 1.35rem;
+  font-weight: 400;
+}
+
+.art-track figcaption span {
+  text-align: right;
+}
+
+.web-section {
+  padding-block: clamp(120px, 14vw, 210px);
+}
+
+.web-heading {
+  border-bottom: 1px solid #292929;
+}
+
+.web-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: clamp(70px, 8vw, 120px) clamp(18px, 3vw, 42px);
+  padding-top: 56px;
+}
+
+.web-grid article:nth-child(even) {
+  margin-top: 100px;
+}
+
+.web-image {
+  position: relative;
+  aspect-ratio: 16 / 10;
+  overflow: hidden;
+  background: #171717;
+  border: 1px solid #292929;
+}
+
+.web-image img {
+  object-position: top center;
+  filter: saturate(0.72) brightness(0.84);
+  transition: filter 500ms ease, transform 800ms cubic-bezier(0.2, 0.7, 0.2, 1);
+}
+
+.web-grid article:hover .web-image img {
+  filter: saturate(1) brightness(0.98);
+  transform: scale(1.025);
+}
+
+.web-image span {
+  position: absolute;
+  right: 18px;
+  top: 18px;
+  display: grid;
+  width: 42px;
+  height: 42px;
+  place-items: center;
+  border: 1px solid rgba(255, 255, 255, 0.28);
+  border-radius: 50%;
+  background: rgba(10, 10, 10, 0.5);
+  font-family: var(--font-geist-mono), monospace;
+  font-size: 0.58rem;
+}
+
+.web-grid article > div:last-child {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 28px;
+  padding-top: 22px;
+}
+
+.web-grid h3 {
+  margin: 0;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(1.8rem, 3vw, 3.2rem);
+  font-weight: 400;
+  letter-spacing: -0.04em;
+}
+
+.web-grid p {
+  margin: 0;
+  text-align: right;
+}
+
+.sketch-section {
+  background: #d8d2c8;
+  color: #121212;
+}
+
+.sketch-layout {
+  min-height: 920px;
+  display: grid;
+  grid-template-columns: 0.7fr 1.3fr;
+  gap: clamp(60px, 9vw, 140px);
+  align-items: center;
+  padding-block: 120px;
+}
+
+.sketch-copy .section-label {
+  color: #625d55;
+}
+
+.sketch-copy h2 {
+  font-size: clamp(3.8rem, 6vw, 6.6rem);
+}
+
+.sketch-copy > p:last-child {
+  max-width: 420px;
+  margin-top: 42px;
+  color: #625d55;
+  line-height: 1.8;
+}
+
+.sketch-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: clamp(10px, 1.5vw, 22px);
+  align-items: end;
+}
+
+.sketch-grid figure {
+  margin: 0;
+}
+
+.sketch-grid figure:nth-child(2) {
+  transform: translateY(-74px);
+}
+
+.sketch-grid img {
+  aspect-ratio: 3 / 4;
+  object-position: center top;
+  filter: grayscale(1) contrast(1.03);
+  box-shadow: 0 22px 50px rgba(35, 29, 22, 0.18);
+}
+
+.sketch-grid figcaption {
+  padding-top: 14px;
+  color: #5c574f;
+  font-family: var(--font-geist-mono), monospace;
+  font-size: 0.58rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.portrait-block > img {
+  position: absolute;
+  inset: 0;
+  object-position: center 20%;
+  filter: grayscale(1) contrast(1.08) brightness(0.58);
+}
+
+.story-card {
+  background:
+    linear-gradient(105deg, rgba(11, 11, 11, 0.25), rgba(11, 11, 11, 0.93)),
+    url("https://foyner.no/images/rust-ladder-water.jpg") center 55% / cover no-repeat;
+}
+
+@keyframes hero-drift {
+  to {
+    transform: scale(1.09) translate3d(-1.2%, -0.8%, 0);
+  }
+}
+
 @keyframes reveal {
   to {
     opacity: 1;
@@ -957,6 +1371,44 @@ footer > p {
   .story-card > a {
     grid-column: 1;
   }
+
+  .editorial-heading,
+  .sketch-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .editorial-heading {
+    gap: 44px;
+  }
+
+  .editorial-heading > p {
+    max-width: 560px;
+  }
+
+  .art-heading {
+    width: min(100% - 36px, 1440px);
+  }
+
+  .art-track {
+    width: 100%;
+    grid-template-columns: repeat(5, minmax(270px, 34vw));
+    overflow-x: auto;
+    padding: 0 18px 24px;
+    scroll-snap-type: x proximity;
+  }
+
+  .art-track figure {
+    scroll-snap-align: center;
+  }
+
+  .web-grid article:nth-child(even) {
+    margin-top: 64px;
+  }
+
+  .sketch-layout {
+    min-height: auto;
+    gap: 120px;
+  }
 }
 
 @media (max-width: 640px) {
@@ -1050,6 +1502,87 @@ footer > p {
     grid-column: 1 / -1;
     justify-self: start;
     margin: 0;
+  }
+
+  .hero-photo {
+    background-position: 58% center;
+  }
+
+  .editorial-heading h2,
+  .sketch-copy h2 {
+    font-size: clamp(3.2rem, 15vw, 4.8rem);
+  }
+
+  .photo-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .photo-grid .photo-tall,
+  .photo-grid .photo-wide {
+    grid-column: 1;
+    height: 118vw;
+    max-height: 620px;
+    margin-top: 0;
+  }
+
+  .photo-grid figure + figure {
+    margin-top: 16px !important;
+  }
+
+  .photo-grid figcaption {
+    flex-direction: column-reverse;
+    align-items: flex-start;
+    gap: 8px;
+  }
+
+  .collection-link-wrap {
+    justify-content: flex-start;
+  }
+
+  .art-track {
+    grid-template-columns: repeat(5, minmax(250px, 78vw));
+  }
+
+  .art-track figure:nth-child(even) {
+    margin-top: 42px;
+  }
+
+  .web-grid {
+    grid-template-columns: 1fr;
+    gap: 66px;
+  }
+
+  .web-grid article:nth-child(even) {
+    margin-top: 0;
+  }
+
+  .web-grid article > div:last-child {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .web-grid p {
+    text-align: left;
+  }
+
+  .sketch-layout {
+    gap: 80px;
+    padding-block: 100px;
+  }
+
+  .sketch-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .sketch-grid figure:nth-child(2) {
+    transform: translateY(-44px);
+  }
+
+  .sketch-grid figure:last-child {
+    grid-column: 1 / -1;
+    width: 52%;
+    margin: -12px auto 0;
   }
 }
 
