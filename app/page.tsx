@@ -83,6 +83,56 @@ const photographs = [
 ];
 
 const artworks = [
+  {
+    src: "/images/art/ChatGPT Image Aug 13, 2026, 01_21_24 PM.png",
+    title: "Ashbound",
+    note: "Smoke portrait",
+  },
+  {
+    src: "/images/art/ChatGPT Image Aug 13, 2026, 02_29_42 PM.png",
+    title: "Veil of cinders",
+    note: "Dark fantasy",
+  },
+  {
+    src: "/images/art/ChatGPT Image Aug 14, 2026, 05_31_47 PM.png",
+    title: "Ember wraith",
+    note: "Character study",
+  },
+  {
+    src: "/images/art/ChatGPT Image Aug 14, 2026, 05_41_30 PM.png",
+    title: "Shadow current",
+    note: "Smoke & light",
+  },
+  {
+    src: "/images/art/ChatGPT Image Aug 14, 2026, 05_41_38 PM.png",
+    title: "Stormborn",
+    note: "Cinematic portrait",
+  },
+  {
+    src: "/images/art/ChatGPT Image Aug 14, 2026, 05_45_29 PM.png",
+    title: "Cinderform",
+    note: "Ember study",
+  },
+  {
+    src: "/images/art/ChatGPT Image Aug 14, 2026, 10_38_39 AM.png",
+    title: "Quiet dissolve",
+    note: "Visual story",
+  },
+  {
+    src: "/images/art/ChatGPT Image Aug 14, 2026, 12_48_06 PM.png",
+    title: "Voice in ash",
+    note: "Music portrait",
+  },
+  {
+    src: "/images/art/ChatGPT Image Aug 14, 2026, 12_49_29 PM.png",
+    title: "Fireline",
+    note: "Music portrait",
+  },
+  {
+    src: "/images/art/ChatGPT Image Aug 14, 2026, 12_51_15 PM.png",
+    title: "Afterglow",
+    note: "Ember portrait",
+  },
   { src: "/images/art/aniz.webp", title: "Aniz", note: "Portrait study" },
   { src: "/images/art/viking.webp", title: "Viking", note: "Character art" },
   { src: "/images/art/demonhunter.webp", title: "Demon hunter", note: "Dark fantasy" },
@@ -330,7 +380,7 @@ export default function Home() {
             <figure key={artwork.src}>
               <div className="art-image">
                 <img src={artwork.src} alt={`${artwork.title} digital artwork`} loading="lazy" decoding="async" />
-                <span>0{index + 1}</span>
+                <span>{String(index + 1).padStart(2, "0")}</span>
               </div>
               <figcaption>
                 <strong>{artwork.title}</strong>
