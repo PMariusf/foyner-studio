@@ -83,6 +83,56 @@ const photographs = [
 ];
 
 const artworks = [
+  {
+    src: "/images/art/ashbound.webp",
+    title: "Ashbound",
+    note: "Smoke portrait",
+  },
+  {
+    src: "/images/art/veil-of-cinders.webp",
+    title: "Veil of cinders",
+    note: "Dark fantasy",
+  },
+  {
+    src: "/images/art/ember-wraith.webp",
+    title: "Ember wraith",
+    note: "Character study",
+  },
+  {
+    src: "/images/art/shadow-current.webp",
+    title: "Shadow current",
+    note: "Smoke & light",
+  },
+  {
+    src: "/images/art/stormborn.webp",
+    title: "Stormborn",
+    note: "Cinematic portrait",
+  },
+  {
+    src: "/images/art/cinderform.webp",
+    title: "Cinderform",
+    note: "Ember study",
+  },
+  {
+    src: "/images/art/quiet-dissolve.webp",
+    title: "Quiet dissolve",
+    note: "Visual story",
+  },
+  {
+    src: "/images/art/voice-in-ash.webp",
+    title: "Voice in ash",
+    note: "Music portrait",
+  },
+  {
+    src: "/images/art/fireline.webp",
+    title: "Fireline",
+    note: "Music portrait",
+  },
+  {
+    src: "/images/art/afterglow.webp",
+    title: "Afterglow",
+    note: "Ember portrait",
+  },
   { src: "/images/art/aniz.webp", title: "Aniz", note: "Portrait study" },
   { src: "/images/art/viking.webp", title: "Viking", note: "Character art" },
   { src: "/images/art/demonhunter.webp", title: "Demon hunter", note: "Dark fantasy" },
@@ -330,7 +380,7 @@ export default function Home() {
             <figure key={artwork.src}>
               <div className="art-image">
                 <img src={artwork.src} alt={`${artwork.title} digital artwork`} loading="lazy" decoding="async" />
-                <span>0{index + 1}</span>
+                <span>{String(index + 1).padStart(2, "0")}</span>
               </div>
               <figcaption>
                 <strong>{artwork.title}</strong>

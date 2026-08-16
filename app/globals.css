@@ -65,10 +65,10 @@ a {
 .hero-photo::before {
   content: "";
   position: absolute;
-  inset: -5%;
-  background: url("https://foyner.no/images/rust-ladder-water.jpg") center 58% / cover no-repeat;
-  filter: grayscale(1) blur(24px) brightness(0.5);
-  transform: scale(1.08);
+  inset: 0;
+  background: url("/images/art/foyner-hero.webp") center 42% / cover no-repeat;
+  filter: grayscale(0.9) contrast(1.07) brightness(0.78);
+  transform: scale(1.01);
 }
 
 .hero-photo::after {
@@ -77,13 +77,11 @@ a {
   z-index: 1;
   inset: 0;
   background-image:
-    linear-gradient(90deg, rgba(5, 5, 5, 0.96) 0%, rgba(5, 5, 5, 0.72) 43%, rgba(5, 5, 5, 0.36) 74%, rgba(5, 5, 5, 0.7) 100%),
-    linear-gradient(0deg, rgba(5, 5, 5, 0.7), transparent 45%),
-    url("https://foyner.no/images/rust-ladder-water.jpg");
-  background-position: center, center, center 58%;
-  background-size: 100% 100%, 100% 100%, contain;
+    linear-gradient(90deg, rgba(5, 5, 5, 0.86) 0%, rgba(5, 5, 5, 0.62) 42%, rgba(5, 5, 5, 0.22) 72%, rgba(5, 5, 5, 0.48) 100%),
+    linear-gradient(0deg, rgba(5, 5, 5, 0.72), transparent 48%);
+  background-position: center, center;
+  background-size: 100% 100%, 100% 100%;
   background-repeat: no-repeat;
-  filter: grayscale(1) contrast(1.05);
   pointer-events: none;
 }
 
@@ -1432,7 +1430,9 @@ a:focus-visible {
 
   .art-track {
     width: 100%;
-    grid-template-columns: repeat(5, minmax(270px, 34vw));
+    grid-template-columns: none;
+    grid-auto-flow: column;
+    grid-auto-columns: minmax(270px, 34vw);
     overflow-x: auto;
     padding: 0 18px 24px;
     scroll-snap-type: x proximity;
@@ -1574,12 +1574,7 @@ a:focus-visible {
   }
 
   .hero-photo::before {
-    background-position: 58% center;
-  }
-
-  .hero-photo::after {
-    background-position: center, center, 58% center;
-    background-size: 100% 100%, 100% 100%, cover;
+    background-position: 62% center;
   }
 
   .editorial-heading h2,
@@ -1614,7 +1609,7 @@ a:focus-visible {
   }
 
   .art-track {
-    grid-template-columns: repeat(5, minmax(250px, 78vw));
+    grid-auto-columns: minmax(250px, 78vw);
   }
 
   .art-track figure:nth-child(even) {
