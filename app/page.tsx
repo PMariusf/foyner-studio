@@ -84,52 +84,52 @@ const photographs = [
 
 const artworks = [
   {
-    src: "/images/art/ChatGPT Image Aug 13, 2026, 01_21_24 PM.png",
+    src: "/images/art/ashbound.webp",
     title: "Ashbound",
     note: "Smoke portrait",
   },
   {
-    src: "/images/art/ChatGPT Image Aug 13, 2026, 02_29_42 PM.png",
+    src: "/images/art/veil-of-cinders.webp",
     title: "Veil of cinders",
     note: "Dark fantasy",
   },
   {
-    src: "/images/art/ChatGPT Image Aug 14, 2026, 05_31_47 PM.png",
+    src: "/images/art/ember-wraith.webp",
     title: "Ember wraith",
     note: "Character study",
   },
   {
-    src: "/images/art/ChatGPT Image Aug 14, 2026, 05_41_30 PM.png",
+    src: "/images/art/shadow-current.webp",
     title: "Shadow current",
     note: "Smoke & light",
   },
   {
-    src: "/images/art/ChatGPT Image Aug 14, 2026, 05_41_38 PM.png",
+    src: "/images/art/stormborn.webp",
     title: "Stormborn",
     note: "Cinematic portrait",
   },
   {
-    src: "/images/art/ChatGPT Image Aug 14, 2026, 05_45_29 PM.png",
+    src: "/images/art/cinderform.webp",
     title: "Cinderform",
     note: "Ember study",
   },
   {
-    src: "/images/art/ChatGPT Image Aug 14, 2026, 10_38_39 AM.png",
+    src: "/images/art/quiet-dissolve.webp",
     title: "Quiet dissolve",
     note: "Visual story",
   },
   {
-    src: "/images/art/ChatGPT Image Aug 14, 2026, 12_48_06 PM.png",
+    src: "/images/art/voice-in-ash.webp",
     title: "Voice in ash",
     note: "Music portrait",
   },
   {
-    src: "/images/art/ChatGPT Image Aug 14, 2026, 12_49_29 PM.png",
+    src: "/images/art/fireline.webp",
     title: "Fireline",
     note: "Music portrait",
   },
   {
-    src: "/images/art/ChatGPT Image Aug 14, 2026, 12_51_15 PM.png",
+    src: "/images/art/afterglow.webp",
     title: "Afterglow",
     note: "Ember portrait",
   },

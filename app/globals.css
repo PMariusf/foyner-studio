@@ -66,7 +66,7 @@ a {
   content: "";
   position: absolute;
   inset: 0;
-  background: url("/images/art/hero-image-one.png") center 42% / cover no-repeat;
+  background: url("/images/art/foyner-hero.webp") center 42% / cover no-repeat;
   filter: grayscale(0.9) contrast(1.07) brightness(0.78);
   transform: scale(1.01);
 }
