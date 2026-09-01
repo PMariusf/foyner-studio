@@ -133,11 +133,25 @@ const artworks = [
     title: "Afterglow",
     note: "Ember portrait",
   },
-  { src: "/images/art/aniz.webp", title: "Aniz", note: "Portrait study" },
-  { src: "/images/art/viking.webp", title: "Viking", note: "Character art" },
-  { src: "/images/art/demonhunter.webp", title: "Demon hunter", note: "Dark fantasy" },
-  { src: "/images/art/paladin.webp", title: "Paladin", note: "Light & armour" },
-  { src: "/images/art/crylina.webp", title: "Crylina", note: "Visual story" },
+  { src: "/images/art/aniz.webp",
+     title: "Aniz", 
+     note: "Portrait study" },
+     
+  { src: "/images/art/viking.webp",
+     title: "Viking",
+      note: "Character art" },
+
+  { src: "/images/art/demonhunter.webp",
+     title: "Demon hunter",
+     note: "Dark fantasy" },
+
+  { src: "/images/art/paladin.webp",
+     title: "Paladin",
+     note: "Light & armour" },
+
+  { src: "/images/art/crylina.webp",
+     title: "Crylina",
+     note: "Visual story" },
 ];
 
 const webProjects = [
