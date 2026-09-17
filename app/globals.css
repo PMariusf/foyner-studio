@@ -1771,16 +1771,17 @@ a:focus-visible {
 /* A quiet singer video in the music feature. */
 .music-feature-content {
   display: grid;
-  grid-template-columns: minmax(0, 1fr) minmax(0, 440px);
+  grid-template-columns: minmax(0, 280px) minmax(0, 400px) minmax(0, 1fr);
   align-items: center;
-  gap: clamp(32px, 6vw, 100px);
+  gap: clamp(28px, 4vw, 64px);
 }
 .music-singer {
   position: relative;
   width: 100%;
   aspect-ratio: 9 / 16;
-  max-width: 330px;
-  justify-self: end;
+  max-width: 280px;
+  justify-self: start;
+  transform: rotate(-4deg);
   background: #090705;
   margin: 0;
   overflow: hidden;
@@ -1810,9 +1811,9 @@ a:focus-visible {
 .music-singer-toggle:hover { background: #090705; }
 .music-singer-toggle:focus-visible { outline: 2px solid var(--amber); outline-offset: -4px; }
 @media (max-width: 900px) {
-  .music-feature-content { grid-template-columns: minmax(0, 1fr) minmax(0, .85fr); gap: 28px; }
+  .music-feature-content { grid-template-columns: minmax(0, .8fr) minmax(0, 1fr); gap: 40px; }
 }
 @media (max-width: 640px) {
   .music-feature-content { grid-template-columns: 1fr; gap: 36px; min-height: auto; }
-  .music-singer { grid-row: 1; max-width: 300px; justify-self: center; }
+  .music-singer { grid-row: 1; max-width: 280px; justify-self: center; transform: rotate(-3deg); }
 }

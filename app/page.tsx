@@ -71,6 +71,7 @@ export default function Home() {
       <section className="music-feature" id="music" aria-labelledby="music-title">
         <div className="music-feature-art" aria-hidden="true" />
         <div className="shell music-feature-content">
+          <SingerVideo />
           <div className="music-feature-copy">
           <p className="section-label">Sound / 03</p>
           <h2 id="music-title">PM’s <em>Music.</em></h2>
@@ -80,7 +81,6 @@ export default function Home() {
             <Link className="text-link" href="/music">Inside the music <span aria-hidden="true">→</span></Link>
           </div>
           </div>
-          <SingerVideo />
         </div>
       </section>
 
