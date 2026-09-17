@@ -1,4 +1,5 @@
 import Link from "next/link";
+import SingerVideo from "./components/SingerVideo";
 
 export default function Home() {
   return (
@@ -70,6 +71,7 @@ export default function Home() {
       <section className="music-feature" id="music" aria-labelledby="music-title">
         <div className="music-feature-art" aria-hidden="true" />
         <div className="shell music-feature-content">
+          <div className="music-feature-copy">
           <p className="section-label">Sound / 03</p>
           <h2 id="music-title">PM’s <em>Music.</em></h2>
           <p>Original songs. Honest emotion.<br />A feeling that stays with you.</p>
@@ -77,6 +79,8 @@ export default function Home() {
             <a className="studio-button" href="https://open.spotify.com/search/PM%E2%80%99s" target="_blank" rel="noreferrer">Listen on Spotify <span aria-hidden="true">↗</span></a>
             <Link className="text-link" href="/music">Inside the music <span aria-hidden="true">→</span></Link>
           </div>
+          </div>
+          <SingerVideo />
         </div>
       </section>
 
